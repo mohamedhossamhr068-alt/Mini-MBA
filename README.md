@@ -1,15 +1,16 @@
-# ATCO Finance Live
+# ATCO Finance Live — 12 Questions + Final Case Study
 
-Deploy this folder directly to Vercel as a static project.
+This package contains the corrected live quiz frontend:
 
-- Participant: `/` — code `1986`
-- Admin: `/admin` — code `1997`
-- Backend: Supabase Edge API `atco-finance-api-v4`
-- Session: `FINANCE26`
+- **12 MCQ questions** from the supplied Q & A document.
+- Dynamic progress and score out of **12**.
+- **Case Study shown after all 12 MCQs** on the participant page.
+- Case Study also available from the Admin dashboard.
+- Admin page shows **Correct / Wrong** for each participant answer immediately.
+- Correct answer, correct count, wrong count, accuracy, and total score are visible to Admin.
+- Participant page does **not** reveal the correct answer.
 
-Vercel settings:
-- Framework Preset: Other
-- Build Command: leave empty
-- Output Directory: leave empty
+## Important backend note
+The included `supabase-function/index.ts` is the matching backend version for 12 logical questions. It is designed to work with the existing Finance poll tables even if the database currently contains only 10 legacy question rows.
 
-The root of the deployment must contain `index.html`, `admin.html`, `app.js`, `admin.js`, `styles.css`, and `vercel.json`.
+Vercel static deployment: deploy this folder as **Other / no build command**.

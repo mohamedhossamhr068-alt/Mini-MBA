@@ -51,7 +51,7 @@ function showRegistration(){
   app.innerHTML=`<div class="panel auth">
     <div class="qtag">REGISTRATION</div>
     <h1 class="title" style="margin-top:12px">Participant Details</h1>
-    <div class="muted">Enter your details before starting the 12-question challenge.</div>
+    <div class="muted">Enter your details before starting the 12-question challenge. The Case Study appears after the multiple-choice questions.</div>
     <input id="name" autocomplete="name" placeholder="Full name">
     <input id="dept" placeholder="Department">
     <button class="primary" id="register">Start Challenge</button>
@@ -71,7 +71,7 @@ async function loadState(){
   try{
     const data=await call('state',{pin:sessionStorage.getItem('financeParticipantPin')||'',extra:'&participant_id='+encodeURIComponent(participantId())});
     if(!data.participant){showRegistration();return;}
-    if(data.completed){showCompleted(data);return;}
+    if(data.completed){showCaseStudy(data);return;}
     renderQuestion(data);
     if(!heartbeatTimer) heartbeatTimer=setInterval(sendHeartbeat,8000);
   }catch(error){
@@ -103,7 +103,7 @@ function renderQuestion(data){
       <div class="qtag">Q${q.order_no} • ${esc(q.section||'Finance')}</div>
       <div class="qtext">${esc(q.prompt)}</div>
       <div class="options">${options}</div>
-      <button class="primary" id="submit" disabled>Submit & Next Question</button>
+      <button class="primary" id="submit" disabled>${q.order_no===data.total_questions?'Submit Final Answer':'Submit & Next Question'}</button>
       <div id="msg"></div>
     </div>
   </div>`;
@@ -131,13 +131,21 @@ function renderQuestion(data){
   };
 }
 
-function showCompleted(data){
+function showCaseStudy(data){
   if(heartbeatTimer){clearInterval(heartbeatTimer);heartbeatTimer=null;}
-  app.innerHTML=`<div class="panel auth" style="text-align:center">
-    <div style="font-size:58px;color:#12834f">✓</div>
-    <h1 class="title">Challenge Completed</h1>
-    <div class="muted">All ${data.total_questions} responses are recorded successfully.</div>
-    <div class="progress" style="margin-top:20px"><span style="width:100%"></span></div>
+  app.innerHTML=`<div class="panel case-panel">
+    <div style="text-align:center;margin-bottom:20px">
+      <div style="font-size:48px;color:#12834f">✓</div>
+      <h1 class="title">12 Questions Completed</h1>
+      <div class="muted">All ${data.total_questions} multiple-choice answers have been recorded. Now review the Case Study below.</div>
+    </div>
+    <div class="qtag">FINAL CASE STUDY • LOWLAND PRODUCTS LIMITED</div>
+    <div class="case-study-images">
+      <img src="/assets/case-study-1.png" alt="Case Study page 1">
+      <img src="/assets/case-study-2.png" alt="Case Study page 2">
+      <img src="/assets/case-study-3.png" alt="Case Study page 3">
+    </div>
+    <div class="notice" style="margin-top:18px"><b>Required:</b> Prepare the accounting equation as at 30 November 20x0, the Profit & Loss Account for the quarter ended 31 December 20x0, and the Balance Sheet as at 31 December 20x0.</div>
   </div>`;
 }
 
