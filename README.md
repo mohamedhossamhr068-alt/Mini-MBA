@@ -1,16 +1,29 @@
-# ATCO Finance Live — 12 Questions + Final Case Study
+# mini-mba-mu — Final Vercel Package
 
-This package contains the corrected live quiz frontend:
+Production URL target: https://mini-mba-mu.vercel.app/
 
-- **12 MCQ questions** from the supplied Q & A document.
-- Dynamic progress and score out of **12**.
-- **Case Study shown after all 12 MCQs** on the participant page.
-- Case Study also available from the Admin dashboard.
-- Admin page shows **Correct / Wrong** for each participant answer immediately.
-- Correct answer, correct count, wrong count, accuracy, and total score are visible to Admin.
-- Participant page does **not** reveal the correct answer.
+This frontend is already configured to use the existing Supabase backend:
+`https://mwlrmnhudzbivfjsfsms.supabase.co/functions/v1/atco-finance-api-v4`
 
-## Important backend note
-The included `supabase-function/index.ts` is the matching backend version for 12 logical questions. It is designed to work with the existing Finance poll tables even if the database currently contains only 10 legacy question rows.
+Included:
+- 12 MCQ questions.
+- Dynamic participant progress out of 12.
+- Final Case Study shown only after Question 12 is completed.
+- Original Case Study pages included under `/assets/`.
+- Admin dashboard route: `/admin`.
+- Admin shows each selected answer as Correct / Wrong.
+- Admin shows correct count, wrong count, accuracy, progress and score out of 12.
+- Participant does not see the correct answer.
 
-Vercel static deployment: deploy this folder as **Other / no build command**.
+## Vercel
+Deploy the contents of this folder to the GitHub/Vercel project behind `mini-mba-mu.vercel.app`.
+Framework preset: Other.
+No build command is required.
+
+## Supabase
+The frontend already points to the existing Supabase project `mwlrmnhudzbivfjsfsms`.
+For the 12-question backend behavior, deploy the included file:
+`supabase-function/index.ts`
+to the existing Edge Function named:
+`atco-finance-api-v4`
+with JWT verification kept disabled, matching the current custom PIN-authenticated function.
