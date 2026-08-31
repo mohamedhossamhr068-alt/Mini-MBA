@@ -1,4 +1,4 @@
-const API='https://mwlrmnhudzbivfjsfsms.supabase.co/functions/v1/atco-finance-api-v4';
+const API='https://mwlrmnhudzbivfjsfsms.supabase.co/functions/v1/atco-finance-api-v5';
 const CODE='FINANCE26';
 const app=document.getElementById('app');
 let selected='';

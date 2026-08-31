@@ -3,7 +3,7 @@
 Production URL target: https://mini-mba-mu.vercel.app/
 
 This frontend is already configured to use the existing Supabase backend:
-`https://mwlrmnhudzbivfjsfsms.supabase.co/functions/v1/atco-finance-api-v4`
+`https://mwlrmnhudzbivfjsfsms.supabase.co/functions/v1/atco-finance-api-v5`
 
 Included:
 - 12 MCQ questions.
@@ -25,5 +25,5 @@ The frontend already points to the existing Supabase project `mwlrmnhudzbivfjsfs
 For the 12-question backend behavior, deploy the included file:
 `supabase-function/index.ts`
 to the existing Edge Function named:
-`atco-finance-api-v4`
+`atco-finance-api-v5`
 with JWT verification kept disabled, matching the current custom PIN-authenticated function.
