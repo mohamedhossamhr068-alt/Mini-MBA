@@ -1,29 +1,18 @@
-# mini-mba-mu — Final Vercel Package
+# Mini MBA Finance Live — Corrected Build 12.2
 
-Production URL target: https://mini-mba-mu.vercel.app/
+Frontend target:
+https://mini-mba-mu.vercel.app/
 
-This frontend is already configured to use the existing Supabase backend:
-`https://mwlrmnhudzbivfjsfsms.supabase.co/functions/v1/atco-finance-api-v5`
+Correct Supabase Edge Function:
+https://cffftyplraalsrfejzql.supabase.co/functions/v1/atco-finance-live
 
-Included:
-- 12 MCQ questions.
-- Dynamic participant progress out of 12.
-- Final Case Study shown only after Question 12 is completed.
-- Original Case Study pages included under `/assets/`.
-- Admin dashboard route: `/admin`.
-- Admin shows each selected answer as Correct / Wrong.
-- Admin shows correct count, wrong count, accuracy, progress and score out of 12.
-- Participant does not see the correct answer.
+This build contains:
+- 12 MCQ flow
+- Case Study after Question 12
+- Admin Correct / Wrong indicators
+- Dynamic score out of 12
+- Cache bust version 12.2
 
-## Vercel
-Deploy the contents of this folder to the GitHub/Vercel project behind `mini-mba-mu.vercel.app`.
-Framework preset: Other.
-No build command is required.
-
-## Supabase
-The frontend already points to the existing Supabase project `mwlrmnhudzbivfjsfsms`.
-For the 12-question backend behavior, deploy the included file:
-`supabase-function/index.ts`
-to the existing Edge Function named:
-`atco-finance-api-v5`
-with JWT verification kept disabled, matching the current custom PIN-authenticated function.
+Important:
+The Supabase function `atco-finance-live` must have Verify JWT OFF,
+because the function uses its own participant/admin PIN authentication.
