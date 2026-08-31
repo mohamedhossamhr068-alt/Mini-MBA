@@ -20,3 +20,37 @@ button{border:0;border-radius:12px;padding:13px 17px;font-weight:800;font-size:1
 .case-study-images img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid #e4e7ec;background:white;box-shadow:0 5px 20px rgba(20,30,50,.08)}
 .case-btn{font-weight:800}
 @media (min-width:1000px){.case-study-images img{max-width:900px;margin:0 auto}}
+
+
+/* Case Study — clear readable version 12.3 */
+.case-complete{text-align:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.case-check{font-size:52px;color:var(--green);font-weight:900}
+.case-readable{margin-top:18px}
+.case-intro h2{font-size:28px;margin:12px 0 8px}
+.case-intro p{font-size:17px;line-height:1.7;margin:8px 0}
+.case-table-wrap{overflow-x:auto;margin-top:18px;border:1px solid var(--line);border-radius:14px}
+.case-table{width:100%;border-collapse:collapse;min-width:760px;background:#fff}
+.case-table th{background:#172033;color:white;font-size:14px;padding:12px 14px;text-align:left}
+.case-table td{padding:11px 14px;border-bottom:1px solid var(--line);font-size:15px;line-height:1.45;vertical-align:top}
+.case-table td:first-child{font-weight:900;white-space:nowrap;width:120px;color:#9f1726}
+.case-info,.case-required{margin-top:18px;padding:18px;border-radius:14px;line-height:1.65}
+.case-info{background:#f7f9fc;border:1px solid var(--line)}
+.case-required{background:#fff6e7;border:2px solid #efcf89}
+.case-info h3,.case-required h3{font-size:21px;margin:0 0 9px}
+.case-info ol,.case-required ol{margin:0;padding-left:24px}
+.case-info ul{margin:7px 0}
+.case-required li{font-size:16px;margin:7px 0;font-weight:700}
+.original-pages{margin-top:20px;border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}
+.original-pages summary{cursor:pointer;font-weight:900;font-size:16px;color:#172033}
+.original-pages .case-study-images img{image-rendering:auto}
+.case-btn{background:#172033!important;color:#fff!important;font-weight:900!important;border:2px solid #172033!important}
+.case-btn:hover{background:#2b3b58!important}
+.case-admin-head{padding-bottom:15px;border-bottom:1px solid var(--line)}
+@media(max-width:650px){
+  .case-panel{padding:14px}
+  .case-intro h2{font-size:23px}
+  .case-intro p{font-size:15px}
+  .case-table{min-width:680px}
+  .case-table td{font-size:14px}
+  .case-info,.case-required{padding:14px}
+}
